@@ -30,11 +30,11 @@ android {
 
     buildTypes {
         debug {
-            setBaseApiUrl(delegate, "http://www.boredapi.com/api/")
+            setBaseApiUrl(delegate, "https://www.boredapi.com/api/")
         }
 
         release {
-            setBaseApiUrl(delegate, "http://www.boredapi.com/api/")
+            setBaseApiUrl(delegate, "https://www.boredapi.com/api/")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

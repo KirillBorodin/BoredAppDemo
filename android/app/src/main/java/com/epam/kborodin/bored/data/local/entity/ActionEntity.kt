@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "action")
 data class ActionEntity(
     @PrimaryKey
-    val id: Int,
+    val id: String,
     @ColumnInfo(name = "result")
     val result: String
 )

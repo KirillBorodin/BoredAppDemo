@@ -15,6 +15,10 @@ void main() async {
     print(details.exceptionAsString());
     print(details.stack.toString());
   };
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: AppColors.blue, // navigation bar color
+    statusBarColor: AppColors.blue, // status bar color
+  ));
   runZonedGuarded(
       () => runApp(
             MyApp(),

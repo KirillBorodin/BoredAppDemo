@@ -11,7 +11,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ViewModelBuilder.reactive(
         viewModelBuilder: () => MainViewModel(),
-        builder: (context, viewModel, child) => Scaffold(
+        builder: (context, MainViewModel viewModel, child) => Scaffold(
           appBar: AppBar(
             title: Text(
               'BoredApp',
@@ -20,11 +20,15 @@ class MainView extends StatelessWidget {
           body: Stack(
             children: [
               Center(
-                child: Text(
-                  'Hello World!',
-                  style: TextStyle(
-                    color: AppColors.coral,
-                    fontSize: 24,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    viewModel.action?.result ?? '',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: AppColors.coral,
+                      fontSize: 24,
+                    ),
                   ),
                 ),
               ),
@@ -37,7 +41,7 @@ class MainView extends StatelessWidget {
                 child: SizedBox(
                   width: double.maxFinite,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: viewModel.getAction,
                     child: Text(
                       Strings.whatShouldIdo.toUpperCase(),
                       style: TextStyle(color: AppColors.white),
