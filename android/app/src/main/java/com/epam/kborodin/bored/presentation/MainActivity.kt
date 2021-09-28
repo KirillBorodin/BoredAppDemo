@@ -1,6 +1,7 @@
 package com.epam.kborodin.bored.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -21,25 +22,17 @@ class MainActivity : AppCompatActivity() {
 
         initText()
         initButton()
-        initProgressBar()
     }
 
     private fun initText() {
-        viewModel.viewData.action.observe(this) {
-            binding.tvAction.text = it.result
+        viewModel.viewData.action.observe(this) { action ->
+            binding.tvAction.text = action?.result
         }
     }
 
     private fun initButton() {
         binding.btnAction.setOnClickListener {
             viewModel.getAction()
-        }
-    }
-
-    private fun initProgressBar() {
-        viewModel.viewData.isLoading.observe(this) { isLoading ->
-            binding.pbLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
-            binding.tvAction.visibility = if (isLoading) View.GONE else View.VISIBLE
         }
     }
 }

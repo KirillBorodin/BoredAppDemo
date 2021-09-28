@@ -15,21 +15,18 @@ class MainActivityViewModel @Inject constructor(
 ) : ViewModel() {
     val viewData = MainActivityViewData()
 
+    init {
+        getAction()
+    }
+
     fun getAction() {
-        setActionIsLoading(true)
         actionRepository.getAction()
             .mapLatest {
                 viewData.action.postValue(it)
-                setActionIsLoading(false)
             }
             .catch {
                 print(it.stackTrace)
-                viewData.isLoading.postValue(false)
             }
             .launchIn(viewModelScope)
-    }
-
-    private fun setActionIsLoading(isLoading: Boolean) {
-        viewData.isLoading.postValue(isLoading)
     }
 }

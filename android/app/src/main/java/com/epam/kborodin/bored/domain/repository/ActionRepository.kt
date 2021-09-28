@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ActionRepository {
 
-    fun getAction(): Flow<Action>
+    fun getAction(): Flow<Action?>
 }

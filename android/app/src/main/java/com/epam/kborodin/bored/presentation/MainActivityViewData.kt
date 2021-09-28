@@ -5,5 +5,4 @@ import com.epam.kborodin.bored.domain.model.Action
 
 class MainActivityViewData {
     val action = MutableLiveData<Action>()
-    val isLoading = MutableLiveData<Boolean>()
 }
