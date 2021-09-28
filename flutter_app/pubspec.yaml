@@ -1,0 +1,52 @@
+name: flutter_app
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.3
+
+  # state management (MVVM)
+  stacked: ^2.2.5
+
+  # navigation service, dialog service etc.
+  stacked_services: ^0.8.13
+
+  #dependency injection
+  get_it: ^7.2.0
+  injectable: ^1.5.0
+
+  # http manager
+  retrofit: ^2.0.1
+  logger: ^1.1.0
+  dio: ^4.0.0
+
+  # local database
+  floor: ^1.2.0
+  sqflite: ^2.0.0+4
+
+  # json serializing
+  json_annotation: ^4.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.1.2
+  json_serializable: ^5.0.2
+  injectable_generator: ^1.5.2
+  retrofit_generator: ^2.0.1+1
+  floor_generator: ^1.2.0
+  stacked_generator: ^0.5.2
+flutter:
+  fonts:
+    - family: Museo
+      fonts:
+        - asset: lib/presentation/res/font/museo.otf
+  uses-material-design: true
