@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Bored</string>
-    <string name="i_am_boring_nwhat_should_i_do">I am boring!\nWhat should I do?</string>
-    <string name="press_here">Press here</string>
     <string name="what_should_i_do">What should I do?</string>
 </resources>
