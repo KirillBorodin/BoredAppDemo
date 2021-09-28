@@ -1,4 +1,4 @@
-import 'package:flutter_app/data/remote/model/action_response.dart';
+import 'package:flutter_app/data/local/entity/action_entity.dart';
 
 class Action {
   final String id;
@@ -9,8 +9,8 @@ class Action {
     required this.result,
   });
 
-  factory Action.fromResponse(ActionResponse response) => Action(
-        id: response.id,
-        result: response.result,
+  factory Action.fromEntity(ActionEntity entity) => Action(
+        id: entity.id,
+        result: entity.result,
       );
 }
