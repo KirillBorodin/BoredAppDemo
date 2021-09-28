@@ -1,8 +1,6 @@
 package com.epam.kborodin.bored.presentation
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.epam.kborodin.bored.databinding.ActivityMainBinding
@@ -19,20 +17,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
         setContentView(binding.root)
-
         initText()
         initButton()
     }
 
-    private fun initText() {
-        viewModel.viewData.action.observe(this) { action ->
+    private fun initText() =
+        viewModel.action.observe(this) { action ->
             binding.tvAction.text = action?.result
         }
-    }
 
-    private fun initButton() {
+    private fun initButton() =
         binding.btnAction.setOnClickListener {
             viewModel.getAction()
         }
-    }
 }
