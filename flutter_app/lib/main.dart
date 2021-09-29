@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/presentation/res/colors/colors.dart';
@@ -33,19 +35,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      theme: ThemeData(
-        primaryColor: AppColors.blue,
-        backgroundColor: AppColors.white,
-        fontFamily: 'Museo',
-        appBarTheme: AppBarTheme(
-          color: AppColors.blue,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-        ),
-      ),
-      navigatorKey: StackedService.navigatorKey,
-    );
+    final cupertinoTextStyle = TextStyle(fontFamily: 'SourceSansPro');
+    return Platform.isAndroid
+        ? MaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: StackedRouter().onGenerateRoute,
+            theme: ThemeData(
+              primaryColor: AppColors.blue,
+              backgroundColor: AppColors.white,
+              fontFamily: 'Museo',
+              appBarTheme: AppBarTheme(
+                color: AppColors.blue,
+                systemOverlayStyle: SystemUiOverlayStyle.light,
+              ),
+            ),
+            navigatorKey: StackedService.navigatorKey,
+          )
+        : CupertinoApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: StackedRouter().onGenerateRoute,
+            theme: CupertinoThemeData(
+              primaryColor: AppColors.blue,
+              scaffoldBackgroundColor: CupertinoColors.white,
+              textTheme: CupertinoTextThemeData(
+                textStyle: cupertinoTextStyle,
+                actionTextStyle: cupertinoTextStyle,
+                navActionTextStyle: cupertinoTextStyle,
+              ),
+            ),
+          );
   }
 }

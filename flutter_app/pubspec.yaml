@@ -49,4 +49,7 @@ flutter:
     - family: Museo
       fonts:
         - asset: lib/presentation/res/font/museo.otf
+    - family: SourceSansPro
+      fonts:
+        - asset: lib/presentation/res/font/source_sans_pro.otf
   uses-material-design: true
