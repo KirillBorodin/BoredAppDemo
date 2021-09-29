@@ -8,6 +8,8 @@ import 'package:flutter_app/presentation/res/strings/strings.dart';
 import 'package:flutter_app/presentation/view/main_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
+import 'app_bar_main.dart';
+
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
 
@@ -16,26 +18,14 @@ class MainView extends StatelessWidget {
         viewModelBuilder: () => MainViewModel(),
         builder: (context, MainViewModel viewModel, child) => Platform.isAndroid
             ? Scaffold(
-                appBar: AppBar(
-                  title: Text(
-                    'BoredAppFlutter',
-                  ),
-                ),
+                appBar: AppBarMain(),
                 body: _MainViewContent(
                   action: viewModel.action?.result ?? '',
                   onGetActionClicked: viewModel.getAction,
                 ),
               )
             : CupertinoPageScaffold(
-                navigationBar: CupertinoNavigationBar(
-                  middle: Text(
-                    'BoredAppFlutter',
-                    style: TextStyle(
-                      color: AppColors.white,
-                    ),
-                  ),
-                  backgroundColor: AppColors.blue,
-                ),
+                navigationBar: AppBarMain(),
                 child: _MainViewContent(
                   action: viewModel.action?.result ?? '',
                   onGetActionClicked: viewModel.getAction,
@@ -110,10 +100,9 @@ class _ButtonGetAction extends StatelessWidget {
           child: Text(
             Strings.whatShouldIdo.toUpperCase(),
             style: TextStyle(
-              color: AppColors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.bold
-            ),
+                color: AppColors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold),
           ),
           onPressed: onGetActionClicked,
         );
